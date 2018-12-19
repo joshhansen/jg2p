@@ -43,7 +43,7 @@ public class PipelineModelProxy implements Externalizable {
 
   private static final long serialVersionUID = 5722034722126958295L;
   // first version of proxy was 42
-  private static final int VERSION = 42;
+  private static final int VERSION = 43;
 
   private PipelineModel model;
 
@@ -61,7 +61,7 @@ public class PipelineModelProxy implements Externalizable {
     os.writeInt(VERSION); // version / magic number starting
     // in version 42 we write out each object independently and flush after each so that if worse came to worse
     // it would be easy to slice and dice the binary file
-    writeAndFlush(os, model.getTrainingAlignerModel());
+//    writeAndFlush(os, model.getTrainingAlignerModel());
     writeAndFlush(os, model.getTestingAlignerModel());
     writeAndFlush(os, model.getPronouncerModel());
     writeAndFlush(os, model.getGraphoneModel());
@@ -76,9 +76,12 @@ public class PipelineModelProxy implements Externalizable {
   public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 //    log.info("Reading the proxy in....");
     int version = in.readInt();
-    Preconditions.checkState(version >= 42 && version <= 42);
+    Preconditions.checkState(version >= 42 && version <= 43);
     this.model = new PipelineModel();
-    this.model.setTrainingAlignerModel((AlignModel) in.readObject());
+    
+    if(version < 43) {
+    	this.model.setTrainingAlignerModel((AlignModel) in.readObject());
+    }
     this.model.setTestingAlignerModel((Aligner) in.readObject());
     this.model.setPronouncerModel((PhonemeCrfModel) in.readObject());
     this.model.setGraphoneModel((LangModel) in.readObject());

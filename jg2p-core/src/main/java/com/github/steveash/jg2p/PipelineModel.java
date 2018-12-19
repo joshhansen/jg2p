@@ -31,6 +31,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
@@ -46,6 +47,11 @@ public class PipelineModel implements Serializable {
   private static final Logger log = LoggerFactory.getLogger(PipelineModel.class);
 
   private static final long serialVersionUID = 863270402760625113L;
+  
+  public static PipelineModel fromIS(InputStream is) throws ClassNotFoundException, IOException {
+	  ObjectInputStream ois = new ObjectInputStream(is);
+	  return (PipelineModel) ois.readObject();
+  }
 
   private AlignModel trainingAlignerModel = null;
   private Aligner testingAlignerModel = null;
