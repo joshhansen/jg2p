@@ -20,6 +20,7 @@ section below. If you want to train your own models, then see the Training Your 
 Pre-requisites
 * Java 7
 * Maven 3+
+* [git-lfs](https://git-lfs.github.com/) installed - there are a number of large files and GitHub doesn't allow a lot of large files so a separate plugin, git-lfs, solves this. Install this before cloning the repo or if you forget and install this after the fact, then run `git lfs pull` to update your local workspace with real (large) files.
 
 ### Phonetic Encoder
 
@@ -76,7 +77,7 @@ on the full CMU 0.7b dataset (which is ~7MB compressed).  Here is a code example
 
 ```java
 import com.github.steveash.jg2p.model.CmuSyllabifierFactory;
-import com.github.steveash.jg2p.Syllabifier;
+import com.github.steveash.jg2p.syllchain.Syllabifier
 
 // ...
 
