@@ -34,6 +34,8 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  */
 public class SurroundingTokenFeature extends Pipe {
 
+  private static final long serialVersionUID = -8771487611839443827L;
+	
   private final boolean onlyShape;
   private final String prefix;
 

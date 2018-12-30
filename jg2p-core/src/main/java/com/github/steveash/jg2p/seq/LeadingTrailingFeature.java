@@ -32,6 +32,8 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  */
 public class LeadingTrailingFeature extends Pipe {
 
+  private static final long serialVersionUID = 8290878836321112148L;
+
   @Override
   public Instance pipe(Instance carrier) {
     TokenSequence ts = (TokenSequence) carrier.getData();

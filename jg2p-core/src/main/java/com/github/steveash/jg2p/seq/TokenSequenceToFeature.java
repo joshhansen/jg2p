@@ -29,6 +29,8 @@ import cc.mallet.types.TokenSequence;
  */
 public class TokenSequenceToFeature extends Pipe {
 
+  private static final long serialVersionUID = -7179268566524568321L;
+
   @Override
   public Instance pipe(Instance carrier) {
     TokenSequence ts = (TokenSequence) carrier.getData();

@@ -36,6 +36,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class EndingVowelFeature extends Pipe {
 
+  private static final long serialVersionUID = -4110657328241149500L;
+
   @Override
   public Instance pipe(Instance inst) {
 

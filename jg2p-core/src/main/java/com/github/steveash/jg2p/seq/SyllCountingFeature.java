@@ -31,6 +31,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class SyllCountingFeature extends Pipe {
 
+  private static final long serialVersionUID = -1658585450614593135L;
+
   @Override
   public Instance pipe(Instance inst) {
     TokenSequence ts = (TokenSequence) inst.getData();
